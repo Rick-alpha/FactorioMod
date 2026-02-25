@@ -1,0 +1,12 @@
+{
+  "name": "ricky_mod",
+  "version": "1.0.0",
+  "thumbnail": "thumb.png",
+  "title": "Ricks Mod",
+  "author": "Ricky",
+  "factorio_version": "2.0",
+  "description": "Eine Rickickige Mod von Ricky.Fügt verschiedene neue Rezepte, Gegenstände und Flüssigkeiten hinzu.Auch eine Porttalgun, mit der man Portale erschaffen kann, um schnell von einem Ort zum anderen zu gelangen.",
+  "dependencies": [
+    "base >= 2.0.0"
+  ]
+}

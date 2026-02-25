@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Factorio Sprite Editor</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="layout">
+    <section class="panel editor-panel">
+      <h1>Sprite Editor</h1>
+
+      <div class="toolbar">
+        <div class="tool-group">
+          <span>Modus</span>
+          <button id="modeItemBtn" class="active" type="button">Item (64x64)</button>
+          <button id="modeBuildingBtn" type="button">Gebäude (96x96)</button>
+          <button id="modeBuildingLargeBtn" type="button">Gebäude (400x400)</button>
+        </div>
+
+        <div class="tool-group">
+          <button id="drawTool" class="active" type="button">Zeichnen</button>
+          <button id="pickTool" type="button">Pipette</button>
+          <button id="clearBtn" type="button">Leeren</button>
+        </div>
+
+        <div class="tool-group">
+          <label for="colorInput">Farbe</label>
+          <input id="colorInput" type="color" value="#c79a66" />
+          <span id="colorValue">#C79A66</span>
+        </div>
+
+        <div class="tool-group palette" id="palette"></div>
+
+        <div class="tool-group" id="buildingNameGroup">
+          <label for="buildingBaseName">Basisname</label>
+          <input id="buildingBaseName" type="text" value="fabrik" />
+        </div>
+      </div>
+
+      <canvas id="editorCanvas" width="512" height="512" aria-label="64x64 Raster Editor"></canvas>
+      <p id="editorHint" class="hint">Linksklick: malen · Im Pipettenmodus: Farbe aufnehmen</p>
+    </section>
+
+    <section class="panel preview-panel">
+      <h2>Vorschau & Export</h2>
+
+      <div id="itemOutputBlock">
+        <div class="preview-grid">
+          <div>
+            <h3>64x64</h3>
+            <canvas id="preview64" width="64" height="64"></canvas>
+          </div>
+          <div>
+            <h3>32x32</h3>
+            <canvas id="preview32" width="32" height="32"></canvas>
+          </div>
+          <div>
+            <h3>16x16</h3>
+            <canvas id="preview16" width="16" height="16"></canvas>
+          </div>
+          <div>
+            <h3>8x8</h3>
+            <canvas id="preview8" width="8" height="8"></canvas>
+          </div>
+        </div>
+
+        <div>
+          <h3>Spritesheet 120x64</h3>
+          <canvas id="sheetPreview" width="120" height="64"></canvas>
+        </div>
+      </div>
+
+      <div id="buildingOutputBlock" class="hidden">
+        <div>
+          <h3 id="buildingPreviewTitle">Gebäude 96x96</h3>
+          <canvas id="buildingPreview96" width="96" height="96"></canvas>
+        </div>
+        <div>
+          <h3 id="buildingOriginalTitle">originalname.png (1712x904, 8x4)</h3>
+          <canvas id="buildingSheetOriginalPreview" width="1712" height="904"></canvas>
+        </div>
+        <div>
+          <h3 id="buildingShadowTitle">originalname-shadow.png (1520x660, 8x4)</h3>
+          <canvas id="buildingSheetShadowPreview" width="1520" height="660"></canvas>
+        </div>
+        <div>
+          <h3 id="buildingRemantsTitle">remants/originalname-remants.png (328x846, 1x3)</h3>
+          <canvas id="buildingSheetRemantsPreview" width="328" height="846"></canvas>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="exportItemBtn" type="button">Item PNG exportieren</button>
+        <button id="exportBuildingBtn" type="button" class="hidden">Gebäude-Dateien exportieren</button>
+        <button id="importPngBtn" type="button">PNG importieren</button>
+        <button id="saveBtn" type="button">Projekt speichern</button>
+        <button id="loadBtn" type="button">Projekt laden</button>
+        <input id="importPngInput" type="file" accept="image/png" hidden />
+        <input id="loadInput" type="file" accept="application/json" hidden />
+      </div>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
